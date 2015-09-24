@@ -1,7 +1,8 @@
+
 <h1>Todo Lists</h1>
 
     <% @todo_lists.each do |todo_list| %>
-      <tr id="<%= dom_id(todo_list) %>">
+      <div class="todo_list" id="<%= dom_id(todo_list) %>">
         <h2><%= todo_list.title %></h2>
         <p><%= todo_list.description %></p>
         
@@ -19,3 +20,4 @@
 <br>
 
 <%= link_to 'New Todo list', new_todo_list_path %>
+

@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Odot1</title>
+  <title>To Do Application</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
 
-  <div class="nav">
-    <h1><%= link_to "Odot", root_path %></h1>
-    <ul>
-      <li><%= link_to "Todo Lists", todo_lists_path %></li>
-    </ul>
-    <br class="clear" />
-  </div>
-
+  <%= render 'layouts/header' %>
+  
   <% flash.each do |type, message| %>
   <div class="alert flash <%= type %>">
     <%= message %>
