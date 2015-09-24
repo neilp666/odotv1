@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
 
   resources :todo_lists do
-    resources :todo_items
+    resources :todo_items do
+    member do
+      patch :complete
+    end
   end
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
