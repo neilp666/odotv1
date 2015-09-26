@@ -5,6 +5,7 @@ using Rspec & Capybara 2
 shoulda-matchers gem
 bootstrap 3
 Bcrypt 
+factory girl
 
 Rails 4.1.7
 Ruby 2

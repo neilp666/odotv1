@@ -13,8 +13,10 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bcrypt'
 
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem "factory_girl_rails", "~> 4.0"
   gem 'minitest'
 end
 
