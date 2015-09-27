@@ -29,9 +29,10 @@ describe TodoListsController do
   # in order to pass any filters (e.g. authentication) defined in
   # TodoListsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+  let!(:user) { create(:user) }
 
   before do
-    sign_in(build_stubbed(:user))
+    sign_in(user)
   end
 
   describe "GET index" do
@@ -98,6 +99,14 @@ end
         response.should redirect_to(TodoList.last)
       end
     end
+
+
+    it "creates a todo list of the current user" do
+      post :create, {:todo_list => valid_attributes}, valid_session
+      todo_list = TodoList.last
+      expect(todo_list.user).to eq(user)
+    end
+  end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved todo_list as @todo_list" do

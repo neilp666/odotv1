@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925085819) do
+ActiveRecord::Schema.define(version: 20150926173559) do
 
   create_table "todo_items", force: true do |t|
     t.integer  "todo_list_id"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20150925085819) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "todo_lists", ["user_id"], name: "index_todo_lists_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -37,8 +40,10 @@ ActiveRecord::Schema.define(version: 20150925085819) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_reset_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["password_reset_token"], name: "index_users_on_password_reset_token"
 
 end
