@@ -3,6 +3,7 @@
 Example To do application
 using Rspec & Capybara 2
 shoulda-matchers gem
+Capybara email gem
 bootstrap 3
 Bcrypt 
 factory girl
