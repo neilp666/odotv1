@@ -69,4 +69,13 @@ end
         end
       end
     end
+
+    describe "PATCH update" do
+      context "with no token found" do
+        it "renders the edit page" do
+          patch :update, id: 'notfound', user: { password: 'newpassword1', password_confirmation: 'newpassword1' }
+          expect(response).to render_template('edit')
+          end
+      end
+  end
 end
