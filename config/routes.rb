@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'pages/home'
+
   get "/login" => "user_sessions#new", as: :login
   delete "/logout" => "user_sessions#destroy", as: :logout
 
@@ -9,13 +11,14 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   resources :todo_lists do
+    put :email, on: :member
     resources :todo_items do
-    member do
-      patch :complete
+      member do
+        patch :complete
     end
   end
 end
- root 'todo_lists#index'
+ root 'pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
